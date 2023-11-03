@@ -1,7 +1,7 @@
 import express from "express";
 import cors from 'cors';
 import mongoose from 'mongoose';
-import { PORT, mongodbURL } from '../backend/config.js'
+import { PORT, mongodbURL } from '../utopia_new_server/config.js'
 import formulasRoute from './routes/formulaRoute.js'
 
 const app = express();
