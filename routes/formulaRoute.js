@@ -3,37 +3,6 @@ import { Formula } from '../models/formulaModel.js';
 
 const router = express.Router();
 
-//POST formula
-router.post('/', async (req, res) => {
-    try {
-        if (
-            !req.body.nombre ||
-            !req.body.orden ||
-            !req.body.producto
-        ) {
-            return res.status(400).send({
-                mesasge: 'Send all required fields: nombre, orden, producto'
-            });
-        }
-        const newFormula = {
-            nombre: req.body.nombre,
-            orden: req.body.orden,
-            porcentaje: req.body.porcentaje,
-            producto: req.body.producto,
-            temp: req.body.temp,
-            tiempo: req.body.tiempo,
-            ph: req.body.ph,
-            cut: req.body.cut,
-            observaciones: req.body.observaciones,
-        };
-        const formula = await Formula.create(newFormula);
-        return res.status(201).send(formula);
-    } catch (error) {
-        console.log(error);
-        res.status(500).send({ message: error.message })
-    }
-});
-
 //GET all formulas
 router.get('/formulas', async (req, res) => {
     try {
@@ -89,7 +58,7 @@ router.put('/:id', async (req, res) => {
             !req.body.producto
         ) {
             return res.status(400).send({
-                mesasge: 'Send all required fields: nombre, orden, producto'
+                message: 'Send all required fields: nombre, orden, producto'
             });
         }
 
