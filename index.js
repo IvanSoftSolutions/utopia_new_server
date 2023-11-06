@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import { PORT, mongodbURL } from '../utopia_new_server/config.js';
 import formulasRoute from './routes/formulaRoute.js';
 import bitacoraRoute from './routes/bitacoraRoute.js';
+import engraseRoute from './routes/engraseRoute.js'
 
 const app = express();
 
@@ -28,13 +29,18 @@ app.use(cors());
 //     return res.status(234).send('asdasdasd');
 // });
 
+//FORMULAS ROUTES
 app.use('/', formulasRoute);
 
 // app.use('/formulas/:id', formulasRoute);
 
 app.use('/:nombre', formulasRoute);
 
+//BITACORA/REPORTES ROUTES
 app.use('/', bitacoraRoute);
+
+//ENGRASES ROUTES
+app.use('/', engraseRoute);
 
 mongoose
     .connect(mongodbURL)
