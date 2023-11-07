@@ -50,32 +50,32 @@ router.get('/getformula/:nombre', async (req, res) => {
 });
 
 //UPDATE formula
-router.put('/:id', async (req, res) => {
-    try {
-        if (
-            !req.body.nombre ||
-            !req.body.orden ||
-            !req.body.producto
-        ) {
-            return res.status(400).send({
-                message: 'Send all required fields: nombre, orden, producto'
-            });
-        }
+// router.put('/:id', async (req, res) => {
+//     try {
+//         if (
+//             !req.body.nombre ||
+//             !req.body.orden ||
+//             !req.body.producto
+//         ) {
+//             return res.status(400).send({
+//                 message: 'Send all required fields: nombre, orden, producto'
+//             });
+//         }
 
-        const { id } = req.params;
+//         const { id } = req.params;
 
-        const result = await Formula.findByIdAndUpdate(id, req.body);
+//         const result = await Formula.findByIdAndUpdate(id, req.body);
 
-        if (!result) {
-            return res.status(404).json({ message: 'Formula not found' });
-        }
+//         if (!result) {
+//             return res.status(404).json({ message: 'Formula not found' });
+//         }
 
-        return res.status(200).json({ message: 'Formula updated successfully' });
-    } catch (error) {
-        console.log(error);
-        res.status(500).send({ message: error.message })
-    }
-});
+//         return res.status(200).json({ message: 'Formula updated successfully' });
+//     } catch (error) {
+//         console.log(error);
+//         res.status(500).send({ message: error.message })
+//     }
+// });
 
 //DELETE a formula
 router.delete('/:id', async (req, res) => {

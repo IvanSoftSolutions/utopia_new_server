@@ -5,6 +5,7 @@ import { PORT, mongodbURL } from '../utopia_new_server/config.js';
 import formulasRoute from './routes/formulaRoute.js';
 import bitacoraRoute from './routes/bitacoraRoute.js';
 import engraseRoute from './routes/engraseRoute.js'
+import quimicoInventarioRoute from './routes/quimicoInventarioRoute.js'
 
 const app = express();
 
@@ -41,6 +42,9 @@ app.use('/', bitacoraRoute);
 
 //ENGRASES ROUTES
 app.use('/', engraseRoute);
+
+//QUIMICOS ROUTES
+app.use('/', quimicoInventarioRoute);
 
 mongoose
     .connect(mongodbURL)
