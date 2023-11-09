@@ -4,8 +4,10 @@ import mongoose from 'mongoose';
 import { PORT, mongodbURL } from '../utopia_new_server/config.js';
 import formulasRoute from './routes/formulaRoute.js';
 import bitacoraRoute from './routes/bitacoraRoute.js';
-import engraseRoute from './routes/engraseRoute.js'
-import quimicoInventarioRoute from './routes/quimicoInventarioRoute.js'
+import engraseRoute from './routes/engraseRoute.js';
+import quimicoInventarioRoute from './routes/quimicoInventarioRoute.js';
+import formulasTotalesRoute from './routes/formulasTotalesRoute.js';
+import quimicoBitacoraRoute from './routes/quimicoBitacoraRoute.js';
 
 const app = express();
 
@@ -45,6 +47,13 @@ app.use('/', engraseRoute);
 
 //QUIMICOS ROUTES
 app.use('/', quimicoInventarioRoute);
+
+//FORMULAS_TOTALES ROUTES
+app.use('/', formulasTotalesRoute);
+app.use('/:nombre', formulasTotalesRoute);
+
+//QUIMICOS BITACORA ENTRADA/SALIDA ROUTES
+app.use('/', quimicoBitacoraRoute);
 
 mongoose
     .connect(mongodbURL)
