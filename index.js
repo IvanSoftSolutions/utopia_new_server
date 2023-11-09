@@ -8,6 +8,7 @@ import engraseRoute from './routes/engraseRoute.js';
 import quimicoInventarioRoute from './routes/quimicoInventarioRoute.js';
 import formulasTotalesRoute from './routes/formulasTotalesRoute.js';
 import quimicoBitacoraRoute from './routes/quimicoBitacoraRoute.js';
+import importacionesRoute from './routes/importacionesRoute.js';
 
 const app = express();
 
@@ -54,6 +55,9 @@ app.use('/:nombre', formulasTotalesRoute);
 
 //QUIMICOS BITACORA ENTRADA/SALIDA ROUTES
 app.use('/', quimicoBitacoraRoute);
+
+//IMPORTACIONES ROUTES
+app.use('/', importacionesRoute);
 
 mongoose
     .connect(mongodbURL)
