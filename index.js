@@ -10,6 +10,7 @@ import formulasTotalesRoute from './routes/formulasTotalesRoute.js';
 import quimicoBitacoraRoute from './routes/quimicoBitacoraRoute.js';
 import importacionesRoute from './routes/importacionesRoute.js';
 import pielesInventarioRoute from './routes/pielesInventarioRoute.js';
+import ventasVentasRoute from './routes/ventasVentasRoute.js';
 
 const app = express();
 
@@ -62,6 +63,10 @@ app.use('/', importacionesRoute);
 
 //INVENTARIO PIELES ROUTES
 app.use('/', pielesInventarioRoute);
+
+//VENTAS_VENTAS ROUTES
+app.use('/', ventasVentasRoute);
+
 
 mongoose
     .connect(mongodbURL)
