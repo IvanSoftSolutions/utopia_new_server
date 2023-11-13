@@ -13,6 +13,7 @@ import pielesInventarioRoute from './routes/pielesInventarioRoute.js';
 import ventasVentasRoute from './routes/ventasVentasRoute.js';
 import ventasConceptosRoute from './routes/ventasConceptosRoute.js';
 import maquilasVentasRoute from './routes/maquilasVentasRoute.js';
+import maquilasConceptosRoute from './routes/maquilasConceptosRoute.js';
 
 const app = express();
 
@@ -75,6 +76,8 @@ app.use('/', ventasConceptosRoute);
 //MAQUILAS_VENTAS ROUTES
 app.use('/', maquilasVentasRoute);
 
+//MAQUILAS_CONCEPTOS ROUTES
+app.use('/', maquilasConceptosRoute)
 
 mongoose
     .connect(mongodbURL)
