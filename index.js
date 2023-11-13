@@ -11,7 +11,8 @@ import quimicoBitacoraRoute from './routes/quimicoBitacoraRoute.js';
 import importacionesRoute from './routes/importacionesRoute.js';
 import pielesInventarioRoute from './routes/pielesInventarioRoute.js';
 import ventasVentasRoute from './routes/ventasVentasRoute.js';
-import ventasConceptosRoute from './routes/ventasConceptosRoute.js'
+import ventasConceptosRoute from './routes/ventasConceptosRoute.js';
+import maquilasVentasRoute from './routes/maquilasVentasRoute.js';
 
 const app = express();
 
@@ -70,6 +71,9 @@ app.use('/', ventasVentasRoute);
 
 //VENTAS_CONCEPTOS ROUTES
 app.use('/', ventasConceptosRoute);
+
+//MAQUILAS_VENTAS ROUTES
+app.use('/', maquilasVentasRoute);
 
 
 mongoose
