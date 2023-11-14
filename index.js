@@ -1,7 +1,8 @@
 import express from "express";
 import cors from 'cors';
 import mongoose from 'mongoose';
-import { PORT, mongodbURL } from '../utopia_new_server/config.js';
+import { PORT, mongodbURL } from '/etc/secrets/config.js';
+// import { PORT, mongodbURL } from '../utopia_new_server/config.js';
 import formulasRoute from './routes/formulaRoute.js';
 import bitacoraRoute from './routes/bitacoraRoute.js';
 import engraseRoute from './routes/engraseRoute.js';
