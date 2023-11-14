@@ -1,7 +1,7 @@
 import express from "express";
 import cors from 'cors';
 import mongoose from 'mongoose';
-import { PORT, mongodbURL } from '/etc/secrets/config.js';
+// import { PORT, mongodbURL } from '/etc/secrets/config.js';
 // import { PORT, mongodbURL } from '../utopia_new_server/config.js';
 import formulasRoute from './routes/formulaRoute.js';
 import bitacoraRoute from './routes/bitacoraRoute.js';
@@ -33,9 +33,10 @@ app.use(
 );
 
 mongoose
-    .connect(mongodbURL)
+    .connect(process.env.mongodbURL)
     .then(() => {
         console.log("App connected to database");
+        const PORT = process.env.PORT || 8000
         app.listen(PORT, () => {
             console.log(`Server is running on port ${PORT}`);
         });
