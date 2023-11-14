@@ -28,7 +28,7 @@ app.use(express.json());
 //Option 2: Allow Custom Origins
 app.use(
     cors({
-        origin: ['http://localhost:3000'], // replace this to your frontend url
+        origin: ['https://utopia-new-ivansoftsolutions-projects.vercel.app/'], // replace this to your frontend url
     })
 );
 
