@@ -15,6 +15,7 @@ import ventasVentasRoute from './routes/ventasVentasRoute.js';
 import ventasConceptosRoute from './routes/ventasConceptosRoute.js';
 import maquilasVentasRoute from './routes/maquilasVentasRoute.js';
 import maquilasConceptosRoute from './routes/maquilasConceptosRoute.js';
+import emailRoute from './routes/emailRoute.js';
 
 const app = express();
 
@@ -23,14 +24,14 @@ app.use(express.json());
 
 //Middleware for handling CORS policy
 //Option 1: Allow all origins with default of cors(*)
-// app.use(cors());
+app.use(cors());
 
 //Option 2: Allow Custom Origins
-app.use(
-    cors({
-        origin: 'https://utopia-rnttb2v36-ivansoftsolutions-projects.vercel.app', // replace this to your frontend url
-    })
-);
+// app.use(
+//     cors({
+//         origin: 'https://utopia-rnttb2v36-ivansoftsolutions-projects.vercel.app', // replace this to your frontend url
+//     })
+// );
 
 mongoose
     .connect(process.env.mongodbURL)
@@ -44,6 +45,10 @@ mongoose
     .catch((error) => {
         console.log("MongoDB connection error: ", error);
     })
+
+
+//PORTFOLIO EMAIL CONTACT ROUTE
+app.use('/', emailRoute);
 
 //FORMULAS ROUTES
 app.use('/', formulasRoute);
